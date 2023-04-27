@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Routes>
       <Route exact path={`${BASE_URL}`} element={ <Instructions />}/>
-      <Route  path={`${BASE_URL}/inventario`} element={ <Inventory />}/>
+      <Route exact path={`${BASE_URL}/inventario`} element={ <Inventory />}/>
        
       </Routes> 
      
