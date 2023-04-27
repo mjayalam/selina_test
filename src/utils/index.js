@@ -39,8 +39,8 @@ export const ProductsObj = [
 
 export const headerItems = {
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",
-  navitation: [
-    { name: "Instrucciones ", url: "home" },
-    { name: "Inventario", url: "home" },
+  navigation: [
+    { name: "Instrucciones ", url: "/" },
+    { name: "Inventario", url: "inventario" },
   ]
 }; 

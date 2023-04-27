@@ -13,7 +13,7 @@ export const Header = (() => {
       </Navbar.Brand>
 
       <Nav className="d-flex">
-        {headerItems.navitation.map((tab) => {
+        {headerItems.navigation.map((tab) => {
           return (
             <Nav.Link href={tab.url}>{tab.name} </Nav.Link>
           )

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import '../css/inventory.css';
-export const Inventory = ((...rest) => {
+export const Inventory = (...rest) => {
 
   const [products, setProducts] = useState(ProductsObj);
 
@@ -32,4 +32,4 @@ export const Inventory = ((...rest) => {
     </div>
   </div>
   );
-});
+};
