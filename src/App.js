@@ -6,15 +6,15 @@ import { Header } from './components/Header';
 import {Footer} from './components/Footer';
 import { Inventory } from './pages/Inventory'; 
 import { Instructions } from './pages/Instructions';
+import { BASE_URL } from './utils';
 function App() {
   return (
     <BrowserRouter>
    
       <Header />
       <Routes>
-      <Route path="/" element={ <Instructions />}/>
-        <Route path="instrucciones" element={ <Instructions />}/>
-        <Route path="inventario" element={ <Inventory />}/>
+      <Route exact path={`${BASE_URL}`} element={ <Instructions />}/>
+      <Route  path={`${BASE_URL}/inventario`} element={ <Inventory />}/>
        
       </Routes> 
      

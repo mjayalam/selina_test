@@ -37,10 +37,12 @@ export const ProductsObj = [
   
 ];
 
+export const BASE_URL = "/selina_test"
+
 export const headerItems = {
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",
   navigation: [
-    { name: "Instrucciones ", url: "instrucciones" },
-    { name: "Inventario", url: "inventario" },
+    { name: "Instrucciones ", url: `${BASE_URL}` },
+    { name: "Inventario", url: `${BASE_URL}/inventario` },
   ]
 }; 
