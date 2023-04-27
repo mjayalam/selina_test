@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/selina_test/static/css/main.83c2e432.css",
-    "main.js": "/selina_test/static/js/main.0e870ae6.js",
+    "main.js": "/selina_test/static/js/main.24f53b70.js",
     "static/js/787.e5695f87.chunk.js": "/selina_test/static/js/787.e5695f87.chunk.js",
     "static/media/color.png": "/selina_test/static/media/color.6441e63a57ccc5105bad.png",
     "index.html": "/selina_test/index.html",
     "main.83c2e432.css.map": "/selina_test/static/css/main.83c2e432.css.map",
-    "main.0e870ae6.js.map": "/selina_test/static/js/main.0e870ae6.js.map",
+    "main.24f53b70.js.map": "/selina_test/static/js/main.24f53b70.js.map",
     "787.e5695f87.chunk.js.map": "/selina_test/static/js/787.e5695f87.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.83c2e432.css",
-    "static/js/main.0e870ae6.js"
+    "static/js/main.24f53b70.js"
   ]
 }
