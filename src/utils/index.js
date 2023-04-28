@@ -44,6 +44,9 @@ export const headerItems = {
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",
   navigation: [
     { name: "Instrucciones ", url: BASE_URL },
-    { name: "Inventario", url: `/selina_test/inventario` },
+    { name: "Inventario", url: `${BASE_URL}/inventario` },
+    { name: "Entradas", url: `${BASE_URL}/entradas`},
+    { name: "Salidas", url: `${BASE_URL}/salidas`}
+
   ]
 }; 

@@ -6,6 +6,8 @@ import { Header } from './components/Header';
 import {Footer} from './components/Footer';
 import { Inventory } from './pages/Inventory'; 
 import { Instructions } from './pages/Instructions';
+import { Inputs } from './pages/Inputs';
+import { Outputs } from './pages/Outputs';
 function App() {
   return (
     <>
@@ -14,6 +16,8 @@ function App() {
       <Routes>
         <Route path={`/selina_test`} element={ <Instructions />}/>
         <Route path={`/selina_test/inventario`} element={ <Inventory />}/>
+        <Route path={`/selina_test/entradas`} element={ <Inputs />}/>
+        <Route path={`/selina_test/salidas`} element={ <Outputs />}/>
       </Routes>
       <Footer />
     </BrowserRouter> 
