@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path={`/`}>
+          <Route exact path={`/selina_test`}>
           <Instructions />
           </Route>
           <Route exact path={`/inventario`}>

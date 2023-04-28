@@ -42,7 +42,7 @@ export const BASE_URL = "/selina_test"
 export const headerItems = {
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",
   navigation: [
-    { name: "Instrucciones ", url: "/" },
+    { name: "Instrucciones ", url: "/selina_test" },
     { name: "Inventario", url: `/inventario` },
   ]
 }; 
