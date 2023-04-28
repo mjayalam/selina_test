@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { headerItems } from '../utils'
+import { LinkContainer } from 'react-router-bootstrap'; 
 import "../css/header.css";
 
 export const Header = (() => {
@@ -13,9 +14,11 @@ export const Header = (() => {
       </Navbar.Brand>
 
       <Nav className="d-flex">
-        {headerItems.navigation.map((tab) => {
+        {headerItems.navigation.map((tab,idx) => {
           return (
-            <Nav.Link href={tab.url}>{tab.name} </Nav.Link>
+            <LinkContainer key={idx} to={tab.url}>
+              <Nav.Link>{tab.name}</Nav.Link>
+            </LinkContainer>
           )
         })}
 
