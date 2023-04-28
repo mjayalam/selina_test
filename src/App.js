@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path={`/selina_test`} element={ <Instructions />}/>
-        <Route path={`/inventario`} element={ <Inventory />}/>
+        <Route path={`/selina_test/inventario`} element={ <Inventory />}/>
       </Routes>
       <Footer />
     </BrowserRouter> 
