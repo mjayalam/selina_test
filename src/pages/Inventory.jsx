@@ -1,15 +1,21 @@
-import { ProductsObj } from "../utils";
+import { INVENTORY_KEY, ProductsObj } from "../utils";
 import React, { useState } from 'react';
-import { classNames } from 'primereact/utils';
-
 import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
+
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { Column } from 'primereact/column';
 import '../css/inventory.css';
-export const Inventory = (...rest) => {
+export const Inventory = ({...rest}) => {
 
-  const [products, setProducts] = useState(ProductsObj);
+  const [products, setProducts] = useState(() => {
+    const json = localStorage.getItem(INVENTORY_KEY);
+    console.log(json);
+    if(!!json) {
+      return JSON.parse(json);
+    }
+    return ProductsObj;
+  });
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -40,8 +46,8 @@ export const Inventory = (...rest) => {
     return (
         <div className="flex justify-content-end">
             <span className="p-input-icon-left">
-                <i className="pi pi-search" />
-                <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Busca un producto" />
+              <i className="pi pi-search" style={{ color: 'green' }}></i>
+              <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Busca un producto" />
             </span>
         </div>
     );

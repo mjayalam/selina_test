@@ -37,8 +37,15 @@ export const ProductsObj = [
   
 ];
 
-// export const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000/selina_test" : "https://mjayalam.github.io/selina_test"
+export const InputsArray = [];
+
+export const OutputsArray = [];
+
 export const BASE_URL = "/selina_test";
+
+export const INPUTS_KEY = "inputs-register";
+
+export const INVENTORY_KEY = "inventory";
 
 export const headerItems = {
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",

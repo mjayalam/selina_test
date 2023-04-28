@@ -1,5 +1,6 @@
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
-import 'primereact/resources/primereact.min.css'; 
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from './components/Header';
