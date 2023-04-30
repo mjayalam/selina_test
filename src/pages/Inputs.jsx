@@ -16,11 +16,11 @@ export const Inputs = () => {
   const [products, setProducts] = useState(() => {
     const json = localStorage.getItem(INPUTS_KEY);
     try {
-      if(!!json) {
+      if (!!json) {
         const parsed = JSON.parse(json);
         return parsed;
       }
-    } catch(e) {
+    } catch (e) {
       return InputsArray;
     }
     return InputsArray;
@@ -28,7 +28,7 @@ export const Inputs = () => {
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
-  
+
   const [globalFilterValue, setGlobalFilterValue] = useState('');
 
   const onRowEditComplete = (e) => {
@@ -64,26 +64,26 @@ export const Inputs = () => {
   const updateInventory = (code, quantity) => {
     const json = localStorage.getItem(INVENTORY_KEY);
     let currInventory = ProductsObj;
-    if(!!json) {
+    if (!!json) {
       currInventory = JSON.parse(json);
     }
     let idxToUpdate = currInventory.findIndex((item) => {
       return item.code === code
     });
     currInventory[idxToUpdate].stock += Number(quantity);
-    
+
     localStorage.setItem(INVENTORY_KEY, JSON.stringify(currInventory));
   }
 
   const storeInput = () => {
-    if(newInputCode.length === 0 || newQuantity === 0 || newQuantity == null) return; // TODO validar que el product exista
+    if (newInputCode.length === 0 || newQuantity === 0 || newQuantity == null) return; // TODO validar que el product exista
     const current = localStorage.getItem(INPUTS_KEY);
     let arr = products;
-    if(!!current) {
+    if (!!current) {
       arr = JSON.parse(current);
     }
     setNewInputCode('');
-    arr = [...arr, {code: newInputCode, quantity: newQuantity}]
+    arr = [...arr, { code: newInputCode, quantity: newQuantity }]
     setProducts(arr);
     localStorage.setItem(INPUTS_KEY, JSON.stringify(arr));
     setVisible(false);
@@ -107,7 +107,7 @@ export const Inputs = () => {
 
   return (
     <>
-     
+
       <Flex justifyContent={"flex-end"} >
         <Dialog header="Agrega un producto" visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)} footer={footerContent}>
           <Flex flexDirection={"column"} justifyContent={"center"}>
@@ -128,8 +128,7 @@ export const Inputs = () => {
         paginator
         rows={5}
         rowsPerPageOptions={[5, 10, 25, 50]}
-        header={header} 
-        tableStyle={{ minWidth: '90rem' }}
+        header={header}
         emptyMessage="No se encontraron productos."
       >
         <Column field="code" header="Codigo"></Column>

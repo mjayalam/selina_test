@@ -48,6 +48,7 @@ export const INPUTS_KEY = "inputs-register";
 export const INVENTORY_KEY = "inventory";
 
 export const headerItems = {
+  imgFooter: "https://selina-res.cloudinary.com/image/upload/if_iw_gt_2560,c_scale,w_2560/e_sharpen:80,q_auto:good/f_auto/v1/s-cf-1/xdw7oj4u3s4v/7wcp0CllQpA4HAZ9Rr4FQr/de8c01157022b708957b2b5687ef8449/asset-1.svg",
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",
   navigation: [
     { name: "Instrucciones ", url: BASE_URL },

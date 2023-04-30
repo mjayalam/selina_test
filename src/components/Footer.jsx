@@ -1,20 +1,24 @@
-import { Container, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { headerItems } from '../utils'
 
 const styles = {
-    maxHeight: "20px",
+    height: "50px"
 }
 
 export const Footer = (() => {
     return (<Navbar style={styles} bg="dark" fixed="bottom">
         <Container>
-            <Navbar.Brand href="#home">
+
+            <Nav className="d-flex footer">
+
+            </Nav>
+            <Navbar.Brand href="#home" className='mb-0 pb-0'>
                 <img
-                    src={headerItems?.img}
-                    width="30"
-                    height="30"
+                    src={headerItems?.imgFooter}
+                    width="40"
+                    height="20"
                     className="d-inline-block align-top"
-                    alt="React Bootstrap logo"
+                    alt="footer"
                 />
             </Navbar.Brand>
         </Container>

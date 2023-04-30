@@ -1,10 +1,10 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { headerItems } from '../utils'
-import { LinkContainer } from 'react-router-bootstrap'; 
+import { LinkContainer } from 'react-router-bootstrap';
 import "../css/header.css";
 
 export const Header = (() => {
-  return (<Navbar className="header" >
+  return (<Navbar className="header sticky-top">
     <Container>
       <Navbar.Brand href="#home">
         <img
@@ -14,7 +14,7 @@ export const Header = (() => {
       </Navbar.Brand>
 
       <Nav className="d-flex">
-        {headerItems.navigation.map((tab,idx) => {
+        {headerItems.navigation.map((tab, idx) => {
           return (
             <LinkContainer key={idx} to={tab.url}>
               <Nav.Link>{tab.name}</Nav.Link>
