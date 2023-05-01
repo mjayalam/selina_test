@@ -32,6 +32,12 @@ export const Inventory = ({ ...rest }) => {
     setGlobalFilterValue(value);
   };
 
+
+  const getToOrder = ((option) => {
+    const toOrder = option.securityStock - option.stock
+    return toOrder >= 0 ? toOrder : 0
+  })
+
   const renderHeader = () => {
     return (
       <div className="flex justify-content-end">
@@ -53,7 +59,7 @@ export const Inventory = ({ ...rest }) => {
         className="p-datatable-inventory"
         value={products}
         filters={filters}
-        globalFilterFields={['name', 'code', 'representative.name', 'status']}
+        globalFilterFields={['name', 'code', 'stock', 'securityStock', 'toOrder']}
         dataKey="code"
         rowsPerPageOptions={[5, 10, 25, 50]}
         paginator
@@ -61,13 +67,13 @@ export const Inventory = ({ ...rest }) => {
         header={header}
         emptyMessage="No se encontraron productos."
       >
-        <Column style={{ fontSize: '14px', }} field="code" header="Codigo"></Column>
-        <Column style={{ fontSize: '14px', }} field="name" header="Nombre"></Column>
-        <Column style={{ fontSize: '14px', }} field="stock" header="Stock"></Column>
-        <Column style={{ fontSize: '14px', }} field="securityStock" header="Stock de seguridad"></Column>
-        <Column style={{ fontSize: '14px', }} field="toOrder" header="Cantidad a pedir"></Column>
-        <Column style={{ fontSize: '14px', }} field="reorder" header="Punto de reorden"></Column>
-        <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
+        <Column header="Codigo" field="code" style={{ fontSize: '14px' }} />
+        <Column header="Nombre" field="name" style={{ fontSize: '14px' }} />
+        <Column header="Stock" field="stock" style={{ fontSize: '14px', textAlign: 'center' }} />
+        <Column header="Stock de seguridad" field="securityStock" style={{ fontSize: '14px', textAlign: 'center' }} />
+        <Column header="Cantidad a pedir" field="toOrder" body={getToOrder} style={{ fontSize: '14px', textAlign: 'center' }} />
+        <Column header="Punto de reorden" field="reorder" style={{ fontSize: '14px', textAlign: 'center' }} />
+        <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }} />
       </DataTable>
     </div>
   </Wrapper>
