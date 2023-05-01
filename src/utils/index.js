@@ -59,4 +59,17 @@ export const headerItems = {
     { name: "Salidas", url: `${BASE_URL}/salidas`}
 
   ]
-}; 
+};
+
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+export const DateFormatterMX = new Intl.DateTimeFormat('es-MX', options);
+
+export const dateIsValid = (date) =>  {
+  return !Number.isNaN(new Date(date).getTime());
+}
+
+export const addDays = (date, days) => {
+  date.setDate(date.getDate() + days);
+  return date;
+}

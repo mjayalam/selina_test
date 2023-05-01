@@ -1,4 +1,4 @@
-import { INVENTORY_KEY, ProductsObj } from "../utils";
+import { INVENTORY_KEY, ProductsObj, DateFormatterMX, addDays} from "../utils";
 import React, { useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
@@ -34,8 +34,26 @@ export const Inventory = ({ ...rest }) => {
 
 
   const getToOrder = ((option) => {
-    const toOrder = option.securityStock - option.stock
+    const toOrder = option.securityStock - option.stock;
     return toOrder >= 0 ? toOrder : 0
+  });
+
+  const getReorderPoint = ((option) => {
+    if(option.securityStock <=  0) return DateFormatterMX.format(new Date());
+    let toOrder = parseFloat(option.securityStock - option.stock);
+    if(toOrder < 0) 
+      toOrder = 0.0 ;
+    const division =  parseFloat(toOrder / parseFloat(option.securityStock));
+
+    const days = Math.trunc((1.0 - division) * 10.0);
+
+    const currDate = new Date();
+    const daysToAdd = 15 + days;
+    console.log(`daystodd = ${daysToAdd}, division ${division} option.name = ${option.name}`);
+
+    const newDate = addDays(currDate, daysToAdd);
+    return DateFormatterMX.format(newDate)
+  
   })
 
   const renderHeader = () => {
@@ -72,7 +90,7 @@ export const Inventory = ({ ...rest }) => {
         <Column header="Stock" field="stock" style={{ fontSize: '14px', textAlign: 'center' }} />
         <Column header="Stock de seguridad" field="securityStock" style={{ fontSize: '14px', textAlign: 'center' }} />
         <Column header="Cantidad a pedir" field="toOrder" body={getToOrder} style={{ fontSize: '14px', textAlign: 'center' }} />
-        <Column header="Punto de reorden" field="reorder" style={{ fontSize: '14px', textAlign: 'center' }} />
+        <Column header="Punto de reorden" field="reorder" body={getReorderPoint}style={{ fontSize: '14px', textAlign: 'center' }} />
         <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }} />
       </DataTable>
     </div>
