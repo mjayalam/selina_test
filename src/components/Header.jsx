@@ -4,7 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import "../css/header.css";
 
 export const Header = (() => {
-  return (<Navbar className="header sticky-top">
+  return (<Navbar className="header">
     <Container>
       <Navbar.Brand href="#home">
         <img

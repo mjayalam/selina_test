@@ -22,16 +22,6 @@ export const Inventory = ({ ...rest }) => {
 
   const [globalFilterValue, setGlobalFilterValue] = useState('');
 
-
-  const onRowEditComplete = (e) => {
-    let _products = [...products];
-    let { newData, index } = e;
-
-    _products[index] = newData;
-
-    setProducts(_products);
-  };
-
   const onGlobalFilterChange = (e) => {
     const value = e.target.value;
     let _filters = { ...filters };
@@ -62,11 +52,10 @@ export const Inventory = ({ ...rest }) => {
       <DataTable
         className="p-datatable-inventory"
         value={products}
-        editMode="row"
         filters={filters}
         globalFilterFields={['name', 'code', 'representative.name', 'status']}
         dataKey="code"
-        onRowEditComplete={onRowEditComplete}
+        rowsPerPageOptions={[5, 10, 25, 50]}
         paginator
         rows={5}
         header={header}
