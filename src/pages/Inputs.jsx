@@ -6,6 +6,7 @@ import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 import { Column } from 'primereact/column';
+import { Wrapper } from '../components/Wrapper';
 import { INPUTS_KEY, ProductsObj, INVENTORY_KEY } from "../utils";
 import { InputsArray } from "../utils";
 export const Inputs = () => {
@@ -75,7 +76,7 @@ export const Inputs = () => {
       return item.code === code
     });
 
-    if (idxToUpdate > 0) {
+    if (idxToUpdate >= 0) {
       currInventory[idxToUpdate].stock += Number(quantity);
       arr = [...arr, { code: code, quantity: quantity }]
       setProducts(arr);
@@ -123,7 +124,7 @@ export const Inputs = () => {
   const header = renderHeader();
 
   return (
-    <>
+    <Wrapper>
 
       <Flex justifyContent={"flex-end"} >
         <Dialog header="Agrega un producto" visible={visible} style={{ width: '50vw' }}
@@ -165,6 +166,6 @@ export const Inputs = () => {
         <Column field="quantity" header="Cantidad Ingresada"></Column>
         <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
       </DataTable>
-    </>
+    </Wrapper>
   )
 }

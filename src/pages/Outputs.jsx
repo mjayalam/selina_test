@@ -6,6 +6,7 @@ import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 import { Column } from 'primereact/column';
+import { Wrapper } from '../components/Wrapper';
 import { OUTPUTS_KEY, OutputsArray, ProductsObj, INVENTORY_KEY } from "../utils";
 
 export const Outputs = () => {
@@ -123,8 +124,7 @@ export const Outputs = () => {
     const header = renderHeader();
 
     return (
-        <>
-
+        <Wrapper>
             <Flex justifyContent={"flex-end"} >
                 <Dialog header="Agrega un producto" visible={visible} style={{ width: '50vw' }}
                     onHide={onClose} footer={footerContent}>
@@ -165,6 +165,6 @@ export const Outputs = () => {
                 <Column field="quantity" header="Cantidad Ingresada"></Column>
                 <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
-        </>
+        </Wrapper>
     )
 }

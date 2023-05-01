@@ -2,7 +2,7 @@ import { INVENTORY_KEY, ProductsObj } from "../utils";
 import React, { useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
-
+import { Wrapper } from '../components/Wrapper';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { Column } from 'primereact/column';
 import '../css/inventory.css';
@@ -10,7 +10,7 @@ export const Inventory = ({ ...rest }) => {
 
   const [products, setProducts] = useState(() => {
     const json = localStorage.getItem(INVENTORY_KEY);
-    console.log(json);
+
     if (!!json) {
       return JSON.parse(json);
     }
@@ -57,7 +57,7 @@ export const Inventory = ({ ...rest }) => {
 
   const header = renderHeader();
 
-  return (
+  return (<Wrapper>
     <div {...rest}>
       <DataTable
         className="p-datatable-inventory"
@@ -69,7 +69,6 @@ export const Inventory = ({ ...rest }) => {
         onRowEditComplete={onRowEditComplete}
         paginator
         rows={5}
-        // rowsPerPageOptions={[5, 10, 25, 50]}
         header={header}
         emptyMessage="No se encontraron productos."
       >
@@ -81,5 +80,6 @@ export const Inventory = ({ ...rest }) => {
         <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
       </DataTable>
     </div>
+  </Wrapper>
   );
 };
