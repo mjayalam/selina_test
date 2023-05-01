@@ -6,7 +6,7 @@ export const ProductsObj = [
   { code: "SCD0005", name: "Toallas de Mano", stock: 201 , securityStock: 191, toOrder: 0, reorder: null},
   { code: "SCD0006", name: "Tapetes de baño", stock: 233 , securityStock: 149, toOrder: 0, reorder: null},
   { code: "SCD0007", name: "Toalla Facial", stock: 139 , securityStock: 424, toOrder: 0, reorder: null},
-  { code: "SCD0008", name: "Toallas de Alberca", stock: 0 , securityStock: 0, toOrder: 0, reorder: null},
+  { code: "SCD0008", name: "Toallas de Alberca", stock: 0 , securityStock: 1, toOrder: 0, reorder: null},
   { code: "SCD0009", name: "Sabanas Individuales", stock: 316 , securityStock: 170, toOrder: 0, reorder: null},
   { code: "SCD0010", name: "Sábanas Cajon individuales", stock: 300 , securityStock: 165, toOrder: 0, reorder: null},
   { code: "SCD0011", name: "Protector Colchon Individual", stock: 265 , securityStock: 126, toOrder: 0, reorder: null},
