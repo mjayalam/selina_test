@@ -45,7 +45,7 @@ export const Inventory = ({ ...rest }) => {
       toOrder = 0.0 ;
     const division =  parseFloat(toOrder / parseFloat(option.securityStock));
     const lowerBound = 0;
-    const multiplier = noWhites.has(option.code) ? 180.0 : 23.0;
+    const multiplier = noWhites.has(option.code) ? 23.0 : 180.0;
     const days = Math.trunc((1.0 - division) * multiplier);
     const currDate = new Date();
     const daysToAdd = lowerBound + days;
