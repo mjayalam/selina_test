@@ -77,6 +77,7 @@ export const Inventory = ({ ...rest }) => {
         <Column style={{ fontSize: '14px', }} field="stock" header="Stock"></Column>
         <Column style={{ fontSize: '14px', }} field="securityStock" header="Stock de seguridad"></Column>
         <Column style={{ fontSize: '14px', }} field="toOrder" header="Cantidad a pedir"></Column>
+        <Column style={{ fontSize: '14px', }} field="reorder" header="Punto de reorden"></Column>
         <Column rowEditor headerStyle={{ width: '10%', minWidth: '8rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
       </DataTable>
     </div>
