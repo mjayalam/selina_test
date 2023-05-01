@@ -1,4 +1,4 @@
-import { INVENTORY_KEY, ProductsObj, DateFormatterMX, addDays} from "../utils";
+import { INVENTORY_KEY, ProductsObj, DateFormatterMX, addDays, noWhites} from "../utils";
 import React, { useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
@@ -44,13 +44,11 @@ export const Inventory = ({ ...rest }) => {
     if(toOrder < 0) 
       toOrder = 0.0 ;
     const division =  parseFloat(toOrder / parseFloat(option.securityStock));
-
-    const days = Math.trunc((1.0 - division) * 10.0);
-
+    const lowerBound = 0;
+    const multiplier = noWhites.has(option.code) ? 180.0 : 23.0;
+    const days = Math.trunc((1.0 - division) * multiplier);
     const currDate = new Date();
-    const daysToAdd = 15 + days;
-    console.log(`daystodd = ${daysToAdd}, division ${division} option.name = ${option.name}`);
-
+    const daysToAdd = lowerBound + days;
     const newDate = addDays(currDate, daysToAdd);
     return DateFormatterMX.format(newDate)
   

@@ -13,14 +13,14 @@ export const ProductsObj = [
   { code: "SCD0012", name: "Sábanas Lisa Matrimoniales", stock: 86 , securityStock: 53, toOrder: 0, reorder: null},
   { code: "SCD0013", name: "Sábanas Cajon Matrimonial ", stock: 6 , securityStock: 28, toOrder: 0, reorder: null},
   { code: "SCD0014", name: "Protector Colchon Matrimonial", stock: 33 , securityStock: 43, toOrder: 0, reorder: null},
-  { code: "SCD0015", name: "Cobertor Matrimonial ", stock: 3 , securityStock: 0, toOrder: 0, reorder: null},
+  { code: "SCD0015", name: "Cobertor Matrimonial ", stock: 3 , securityStock: 1, toOrder: 0, reorder: null},
   { code: "SCD0016", name: "Sábanas planas Queen", stock: 15 , securityStock: 26, toOrder: 0, reorder: null},
   { code: "SCD0017", name: "Protector Colchon Queen", stock: 5 , securityStock: 16, toOrder: 0, reorder: null},
   { code: "SCD0018", name: "Inserto Queen", stock: 12 , securityStock: 27, toOrder: 0, reorder: null},
   { code: "SCD0019", name: "Duvet Queen", stock: 27 , securityStock: 27, toOrder: 0, reorder: null},
   { code: "SCD0020", name: "Sábanas Lisa King", stock: 157 , securityStock: 50, toOrder: 0, reorder: null},
   { code: "SCD0021", name: "Sábana cajon King", stock: 24 , securityStock: 49, toOrder: 0, reorder: null},
-  { code: "SCD0022", name: "Cobertor King ", stock: 12 , securityStock: 0, toOrder: 0, reorder: null},
+  { code: "SCD0022", name: "Cobertor King ", stock: 12 , securityStock: 1, toOrder: 0, reorder: null},
   { code: "SCD0023", name: "Protector Colchon King", stock: 64 , securityStock: 38, toOrder: 0, reorder: null},
   { code: "SCD0024", name: "Inserto King", stock: 48 , securityStock: 27, toOrder: 0, reorder: null},
   { code: "SCD0025", name: "Duvet King", stock: 54 , securityStock: 35, toOrder: 0, reorder: null},
@@ -28,12 +28,12 @@ export const ProductsObj = [
   { code: "SCD0027", name: "Fundas Almohadas lisa std", stock: 914 , securityStock: 319, toOrder: 0, reorder: null},
   { code: "SCD0028", name: "Protector Almohada std cierre", stock: 425 , securityStock: 126, toOrder: 0, reorder: null},
   { code: "SCD0029", name: "Almohadas King ", stock: 0 , securityStock: 59, toOrder: 0, reorder: null},
-  { code: "SCD0030", name: "Protector almohada cierre ", stock: 0 , securityStock: 0, toOrder: 0, reorder: null},
+  { code: "SCD0030", name: "Protector almohada cierre ", stock: 0 , securityStock: 1, toOrder: 0, reorder: null},
   { code: "SCD0031", name: "Funda Almohada King", stock: 71 , securityStock: 163, toOrder: 0, reorder: null},
-  { code: "SCD0032", name: "Cortinas Frescura ", stock: 49 , securityStock: 0, toOrder: 0, reorder: null},
-  { code: "SCD0033", name: "Cortinas Blackout ", stock: 131 , securityStock: 0, toOrder: 0, reorder: null},
-  { code: "SCD0034", name: "Cojines decorativos", stock: 67 , securityStock: 0, toOrder: 0, reorder: null},
-  { code: "SCD0035", name: "Forros decorativos", stock: 0 , securityStock: 0, toOrder: 0, reorder: null},
+  { code: "SCD0032", name: "Cortinas Frescura ", stock: 49 , securityStock: 1, toOrder: 0, reorder: null},
+  { code: "SCD0033", name: "Cortinas Blackout ", stock: 131 , securityStock: 1, toOrder: 0, reorder: null},
+  { code: "SCD0034", name: "Cojines decorativos", stock: 67 , securityStock: 1, toOrder: 0, reorder: null},
+  { code: "SCD0035", name: "Forros decorativos", stock: 0 , securityStock: 1, toOrder: 0, reorder: null},
   
 ];
 
@@ -73,3 +73,5 @@ export const addDays = (date, days) => {
   date.setDate(date.getDate() + days);
   return date;
 }
+
+export const noWhites = new Set(["SCD0001", "SCD0002", "SCD0003"])
