@@ -6,24 +6,24 @@ import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 import { Column } from 'primereact/column';
-import { INPUTS_KEY, ProductsObj, INVENTORY_KEY } from "../utils";
-import { InputsArray } from "../utils";
+import { OUTPUTS_KEY, OutputsArray, ProductsObj, INVENTORY_KEY } from "../utils";
+
 export const Outputs = () => {
     const [newInputCode, setNewInputCode] = useState('');
     const [newQuantity, setNewQuantity] = useState(null);
     const [visible, setVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const [products, setProducts] = useState(() => {
-        const json = localStorage.getItem(INPUTS_KEY);
+        const json = localStorage.getItem(OUTPUTS_KEY);
         try {
             if (!!json) {
                 const parsed = JSON.parse(json);
                 return parsed;
             }
         } catch (e) {
-            return InputsArray;
+            return OutputsArray;
         }
-        return InputsArray;
+        return OutputsArray;
     });
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -75,11 +75,11 @@ export const Outputs = () => {
             return item.code === code
         });
 
-        if (idxToUpdate > 0) {
+        if (idxToUpdate >= 0) {
             currInventory[idxToUpdate].stock -= Number(quantity);
             arr = [...arr, { code: code, quantity: quantity }]
             setProducts(arr);
-            localStorage.setItem(INPUTS_KEY, JSON.stringify(arr));
+            localStorage.setItem(OUTPUTS_KEY, JSON.stringify(arr));
             setVisible(false);
 
             localStorage.setItem(INVENTORY_KEY, JSON.stringify(currInventory));
@@ -91,7 +91,7 @@ export const Outputs = () => {
 
     const storeInput = () => {
         if (newInputCode.length === 0 || newQuantity === 0 || newQuantity == null) return;
-        const current = localStorage.getItem(INPUTS_KEY);
+        const current = localStorage.getItem(OUTPUTS_KEY);
         let arr = products;
         if (!!current) {
             arr = JSON.parse(current);
