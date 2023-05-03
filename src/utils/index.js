@@ -53,7 +53,7 @@ export const headerItems = {
   imgFooter: "https://selina-res.cloudinary.com/image/upload/if_iw_gt_2560,c_scale,w_2560/e_sharpen:80,q_auto:good/f_auto/v1/s-cf-1/xdw7oj4u3s4v/7wcp0CllQpA4HAZ9Rr4FQr/de8c01157022b708957b2b5687ef8449/asset-1.svg",
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",
   navigation: [
-    { name: "Instrucciones ", url: BASE_URL },
+    { name: "Inicio ", url: BASE_URL },
     { name: "Inventario", url: `${BASE_URL}/inventario` },
     { name: "Entradas", url: `${BASE_URL}/entradas`},
     { name: "Salidas", url: `${BASE_URL}/salidas`}
@@ -74,4 +74,17 @@ export const addDays = (date, days) => {
   return date;
 }
 
-export const noWhites = new Set(["SCD0001", "SCD0002", "SCD0003"])
+export const noWhites = new Set(["SCD0001", "SCD0002", "SCD0003"]);
+
+export const noWhitesObj = {
+  SCD0001: {
+    multiplier: 0.5 / 60.0
+  },
+  SCD0002: {
+    multiplier: 0.3 / 60.0
+  },
+  SCD0003: {
+    multiplier: 0.8 / 60.0
+  }
+  
+}

@@ -1,9 +1,10 @@
-import { INVENTORY_KEY, ProductsObj, DateFormatterMX, addDays, noWhites} from "../utils";
+import { INVENTORY_KEY, ProductsObj, DateFormatterMX, addDays, noWhites, noWhitesObj, InputsArray} from "../utils";
 import React, { useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
 import { Wrapper } from '../components/Wrapper';
-import { FilterMatchMode, FilterOperator } from 'primereact/api';
+import { Flex } from "../components/Flex";
+import { FilterMatchMode } from 'primereact/api';
 import { Column } from 'primereact/column';
 import '../css/inventory.css';
 export const Inventory = ({ ...rest }) => {
@@ -16,6 +17,7 @@ export const Inventory = ({ ...rest }) => {
     }
     return ProductsObj;
   });
+  const [demandPronos, setDemandPronos ] = useState(0);
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -32,8 +34,12 @@ export const Inventory = ({ ...rest }) => {
     setGlobalFilterValue(value);
   };
 
-
+  const calculateToOrder = (option) => Math.trunc((!!demandPronos ? parseFloat(demandPronos) : 1.0) * noWhitesObj[option.code].multiplier - parseFloat(option.stock));
+  
   const getToOrder = ((option) => {
+    if(noWhites.has(option.code)) {
+      return calculateToOrder(option);
+    }
     const toOrder = option.securityStock - option.stock;
     return toOrder >= 0 ? toOrder : 0
   });
@@ -65,12 +71,40 @@ export const Inventory = ({ ...rest }) => {
     );
   };
 
+  const onChangeDemandPronos = (e) => {
+    const demanda = Number(e.target.value);
+    const json = localStorage.getItem(INVENTORY_KEY);
+    let currProducts = InputsArray;
+		try {
+			if (!!json) {
+				const parsed = JSON.parse(json);
+				currProducts = parsed;
+			}
+		} catch (e) {
+			console.error(e);
+		}
+    currProducts.forEach((item,idx) => {
+      if(noWhites.has(item.code)) {
+        const _toOrder = Math.trunc((!!demanda ? parseFloat(demanda) : 1.0) * noWhitesObj[item.code].multiplier - parseFloat(item.stock))
+        console.log("martin",_toOrder);
+        currProducts[idx].toOrder = _toOrder;
+      }
+    });
+    setDemandPronos(demanda);
+    setProducts(currProducts);
 
+  }
 
   const header = renderHeader();
 
   return (<Wrapper>
     <div {...rest}>
+      <Flex justifyContent={"flex-end"}>
+      <span className="p-float-label">
+        <InputText id={"demand-pronostic"} value={demandPronos} placeholder="Demanda pronosticada" onChange={onChangeDemandPronos}/>
+        <label htmlFor="udemand-pronostic">Pronóstico de demanda</label>
+      </span>
+      </Flex>
       <DataTable
         className="p-datatable-inventory"
         value={products}
