@@ -25,7 +25,6 @@ export const Inventory = ({ ...rest }) => {
   const [globalFilterValue, setGlobalFilterValue] = useState('');
 
   const onGlobalFilterChange = (e) => {
-    console.log("martin onGlobalFilterChange", e);
     const value = e.target.value;
     let _filters = { ...filters };
 
