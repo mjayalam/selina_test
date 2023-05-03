@@ -17,7 +17,7 @@ export const Inventory = ({ ...rest }) => {
     }
     return ProductsObj;
   });
-  const [demandPronos, setDemandPronos ] = useState(0);
+  const [demandPronos, setDemandPronos ] = useState(null);
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -25,6 +25,7 @@ export const Inventory = ({ ...rest }) => {
   const [globalFilterValue, setGlobalFilterValue] = useState('');
 
   const onGlobalFilterChange = (e) => {
+    console.log("martin onGlobalFilterChange", e);
     const value = e.target.value;
     let _filters = { ...filters };
 
@@ -74,7 +75,7 @@ export const Inventory = ({ ...rest }) => {
   const onChangeDemandPronos = (e) => {
     const demanda = Number(e.target.value);
     const json = localStorage.getItem(INVENTORY_KEY);
-    let currProducts = InputsArray;
+    let currProducts = products;
 		try {
 			if (!!json) {
 				const parsed = JSON.parse(json);
@@ -100,7 +101,7 @@ export const Inventory = ({ ...rest }) => {
     <div {...rest}>
       <Flex justifyContent={"flex-end"}>
       <span className="p-float-label">
-        <InputText id={"demand-pronostic"} value={demandPronos} placeholder="Demanda pronosticada" onChange={onChangeDemandPronos}/>
+        <InputText id={"demand-pronostic"} value={demandPronos} onChange={onChangeDemandPronos}/>
         <label htmlFor="udemand-pronostic">Demanda pronosticada</label>
       </span>
       </Flex>
