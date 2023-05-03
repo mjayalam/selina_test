@@ -34,7 +34,10 @@ export const Inventory = ({ ...rest }) => {
     setGlobalFilterValue(value);
   };
 
-  const calculateToOrder = (option) => Math.trunc((!!demandPronos ? parseFloat(demandPronos) : 1.0) * noWhitesObj[option.code].multiplier - parseFloat(option.stock));
+  const calculateToOrder = (option) => { 
+    const _order = Math.trunc((!!demandPronos ? parseFloat(demandPronos) : 1.0) * noWhitesObj[option.code].multiplier - parseFloat(option.stock));
+    return _order > 0 ? _order : 0;
+  }
   
   const getToOrder = ((option) => {
     if(noWhites.has(option.code)) {
