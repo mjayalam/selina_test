@@ -86,7 +86,7 @@ export const Inventory = ({ ...rest }) => {
     currProducts.forEach((item,idx) => {
       if(noWhites.has(item.code)) {
         const _toOrder = Math.trunc((!!demanda ? parseFloat(demanda) : 1.0) * noWhitesObj[item.code].multiplier - parseFloat(item.stock))
-=        currProducts[idx].toOrder = _toOrder;
+        currProducts[idx].toOrder = _toOrder;
       }
     });
     setDemandPronos(demanda);
