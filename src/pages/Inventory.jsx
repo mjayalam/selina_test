@@ -86,8 +86,7 @@ export const Inventory = ({ ...rest }) => {
     currProducts.forEach((item,idx) => {
       if(noWhites.has(item.code)) {
         const _toOrder = Math.trunc((!!demanda ? parseFloat(demanda) : 1.0) * noWhitesObj[item.code].multiplier - parseFloat(item.stock))
-        console.log("martin",_toOrder);
-        currProducts[idx].toOrder = _toOrder;
+=        currProducts[idx].toOrder = _toOrder;
       }
     });
     setDemandPronos(demanda);
@@ -102,14 +101,14 @@ export const Inventory = ({ ...rest }) => {
       <Flex justifyContent={"flex-end"}>
       <span className="p-float-label">
         <InputText id={"demand-pronostic"} value={demandPronos} placeholder="Demanda pronosticada" onChange={onChangeDemandPronos}/>
-        <label htmlFor="udemand-pronostic">Pronóstico de demanda</label>
+        <label htmlFor="udemand-pronostic">Demanda pronosticada</label>
       </span>
       </Flex>
       <DataTable
         className="p-datatable-inventory"
         value={products}
         filters={filters}
-        globalFilterFields={['name', 'code', 'stock', 'securityStock', 'toOrder']}
+        globalFilterFields={['name', 'code', 'stock', 'securityStock']}
         dataKey="code"
         rowsPerPageOptions={[5, 10, 25, 50]}
         paginator
