@@ -49,6 +49,8 @@ export const INVENTORY_KEY = "inventory";
 
 export const OUTPUTS_KEY = "outputs_register";
 
+export const DEMAND_PRONOS_KEY = "demand-pronos";
+
 export const headerItems = {
   imgFooter: "https://selina-res.cloudinary.com/image/upload/if_iw_gt_2560,c_scale,w_2560/e_sharpen:80,q_auto:good/f_auto/v1/s-cf-1/xdw7oj4u3s4v/7wcp0CllQpA4HAZ9Rr4FQr/de8c01157022b708957b2b5687ef8449/asset-1.svg",
   img: "https://www.selina.com/static/media/selina_logo_black.b62a0982.svg",
